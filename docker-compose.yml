@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  orchestrator:
+    image: veridex/orchestrator:0.1.0
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./config:/config
+    environment:
+      RUST_LOG: "info"
+      NODE_ID: "orchestrator"
+
+  worker:
+    image: veridex/worker:0.1.0
+    deploy:
+      replicas: 3
+    environment:
+      ORCHESTRATOR: "orchestrator:50051"
+      TRUST_DOMAIN: "local"
