@@ -1,0 +1,1 @@
+/target/\nenv/\n*.sgx\n/.idea\n.DS_Store\n*.log\n__pycache__/\n*.sqlite\n.env\n/*.wasm\n/test-results/\n
