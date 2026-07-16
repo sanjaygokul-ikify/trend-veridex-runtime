@@ -18,6 +18,9 @@ class VeridexEngine:
         except EngineError as e:
             self.logger.error(f"Engine error: {e}")
             raise VeridexError(f"Engine error: {e}")
+        except Exception as e:
+            self.logger.error(f"Unexpected error: {e}")
+            raise VeridexError(f"Unexpected error: {e}")
 
     def _execute_step(self, agent_state: AgentState, action: Action) -> ExecutionResult:
         # execute the action on the agent state
